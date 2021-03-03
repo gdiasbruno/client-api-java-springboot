@@ -15,28 +15,11 @@ import java.util.List;
 @RestController
 public class apiController {
 
-    public URL setup() {
-        System.setProperty("http.proxyHost", "127.0.0.1");
-        System.setProperty("http.proxyPort", "3128");
-
-        URL url = null;
-        try {
-            url = new URL("https://api.kanye.rest/");
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        try {
-            URLConnection con = url.openConnection();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return url;
-    }
 
     @Autowired
     private RestTemplate restTemplate;
 
-    private static String url = "setup()";
+    private static String url = "https://restcountries.eu/rest/v2/all";
 
     @GetMapping("/countries")
     public List<Object> getCountries(){
